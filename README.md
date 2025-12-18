@@ -54,7 +54,7 @@ The Windows Security Auditor is a PowerShell script that performs comprehensive 
 
 ### Download Options
 
-#### Option 1: Direct Download (Recommended)
+#### Option 1: Copy Paste the Script in Powershell with Admin Privileges(Recommended)
 ```powershell
 # Download the latest version
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/3ls3if/Windows-Server-Audit-Script/refs/heads/main/server_audit.ps1" -OutFile "SecurityAudit.ps1"
