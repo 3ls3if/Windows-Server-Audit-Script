@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    CloudTechtiq Enhanced Windows Security Auditor
+    Enhanced Windows Security Auditor
 .DESCRIPTION
     Performs comprehensive security audits on local machines and Domain Controllers.
     Generates a detailed, expandable HTML report with findings and remediation steps.
@@ -10,7 +10,7 @@
     HTML report saved to the user's Desktop.
 .NOTES
     Version: 4.2
-    Author: CloudTechtiq Pvt. Ltd.
+    Author: 3ls3if
     Changes: Added EDR (Sophos) and Backup (Acronis) detection with exception handling
 #>
 
@@ -21,7 +21,7 @@ $ErrorActionPreference = "Continue"  # Changed from "Stop" to continue on errors
 $Error.Clear()  # Clear any existing errors
 $Script:ExecutionErrors = @()  # Global variable to track errors
 $Date = Get-Date -Format "yyyy-MM-dd_HH-mm"
-$ReportPath = "$env:USERPROFILE\Desktop\CloudTechtiq_Security_Audit_$Date.html"
+$ReportPath = "$env:USERPROFILE\Desktop\3ls3if_Security_Audit_$Date.html"
 
 # Function to log errors without stopping execution
 function Log-Error {
@@ -2246,7 +2246,7 @@ $HtmlHeader = @"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudTechtiq | Security Audit Report</title>
+    <title>3ls3if | Security Audit Report</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -2546,7 +2546,7 @@ $HtmlHeader = @"
             <!-- ERROR SECTION WILL BE INJECTED HERE IF ERRORS OCCURRED -->
         </div>
         <div class="footer">
-            <p><i class="fas fa-lock"></i> <strong>CloudTechtiq Pvt. Ltd.</strong> | Confidential Security Audit</p>
+            <p><i class="fas fa-lock"></i> <strong>3ls3if Pvt. Ltd.</strong> | Confidential Security Audit</p>
             <p>© <script>document.write(new Date().getFullYear());</script> | This report is generated automatically. Findings should be reviewed by a security professional.</p>
         </div>
     </div>
@@ -2605,7 +2605,7 @@ $HtmlHeader = @"
 
 Write-Host "`n"
 Write-Host "╔══════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║   CloudTechtiq Enhanced Security Auditor v4.2                    ║" -ForegroundColor Cyan
+Write-Host "║   3ls3if Enhanced Security Auditor v4.2                    ║" -ForegroundColor Cyan
 Write-Host "║   Now with EDR & Backup Solution Detection                       ║" -ForegroundColor Cyan
 Write-Host "╚══════════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host "`n"
@@ -2958,7 +2958,7 @@ try {
     try {
         $ErrorReport = @"
 <html>
-<head><title>CloudTechtiq - Audit Error</title></head>
+<head><title>3ls3if - Audit Error</title></head>
 <body style="font-family: Arial, sans-serif; padding: 20px;">
     <h1 style="color: #d00;">❌ Security Audit Failed</h1>
     <p>An error occurred while generating the security audit report.</p>
@@ -2979,7 +2979,7 @@ try {
 </body>
 </html>
 "@
-        $ErrorReportPath = "$env:USERPROFILE\Desktop\CloudTechtiq_Audit_ERROR_$Date.html"
+        $ErrorReportPath = "$env:USERPROFILE\Desktop\3ls3if_Audit_ERROR_$Date.html"
         $ErrorReport | Out-File -FilePath $ErrorReportPath -Encoding UTF8
         Write-Host "⚠️  Error report saved to: $ErrorReportPath" -ForegroundColor Yellow
     } catch {
@@ -3026,5 +3026,5 @@ try {
     Write-Host "  [!] Could not open report automatically" -ForegroundColor Yellow
 }
 
-Write-Host "`n[i] Audit script completed. Thank you for using CloudTechtiq Security Auditor v4.2!" -ForegroundColor Cyan
+Write-Host "`n[i] Audit script completed. Thank you for using 3ls3if Security Auditor v4.2!" -ForegroundColor Cyan
 Write-Host "[i] Script executed with $($Script:ExecutionErrors.Count) errors/warnings." -ForegroundColor $(if ($Script:ExecutionErrors.Count -gt 0) { "Yellow" } else { "Green" })
